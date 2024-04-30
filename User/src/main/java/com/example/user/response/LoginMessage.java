@@ -8,6 +8,7 @@ import lombok.Data;
 public class LoginMessage {
     String message;
     Boolean status;
+    Integer userId;  // Include user ID in the login message
 
 
 }

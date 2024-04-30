@@ -30,24 +30,24 @@ public class UserService {
                 userDto.getStatus()
         );
         userRepository.save(user);
-        return new LoginMessage("signed up!", true);
+        return new LoginMessage("signed up!", true,null);
     }
 
     public LoginMessage loginUser(LoginDto loginDto) {
         User user = findUserByEmail(loginDto.getEmail());
         if (user == null) {
-            return new LoginMessage("Email doesn't exist!", false);
+            return new LoginMessage("Email doesn't exist!", false,null);
         }
 
         if (!passwordMatches(loginDto.getPassword(), user.getPassword())) {
-            return new LoginMessage("Password doesn't match!", false);
+            return new LoginMessage("Password doesn't match!", false,null);
         }
 
         Optional<User> authenticatedUser = authenticateUser(loginDto.getEmail(), user.getPassword());
         if (authenticatedUser.isPresent()) {
-            return new LoginMessage("Logged in!", true);
+            return new LoginMessage("Logged in!", true, authenticatedUser.get().getID());
         } else {
-            return new LoginMessage("Login failed!", false);
+            return new LoginMessage("Login failed!", false,null);
         }
     }
 

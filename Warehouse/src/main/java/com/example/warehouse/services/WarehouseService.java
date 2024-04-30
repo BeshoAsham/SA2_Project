@@ -27,4 +27,8 @@ public class WarehouseService {
     public void deleteWarehouse(Integer ID) {
         warehouseRepository.deleteById(ID);
     }
+
+    public List<Warehouse> getWarehousesByUserId(Integer userId) {
+        return warehouseRepository.findByUserId(userId);
+    }
 }

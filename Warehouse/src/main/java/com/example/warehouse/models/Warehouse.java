@@ -20,7 +20,6 @@ public class Warehouse {
     private Status status = Status.Inactive;
     @Column(length = 11)
     private Integer Capacity;
-    @OneToOne(cascade = CascadeType.DETACH)
-    @JoinColumn(nullable = false)
-    private User user;
+    @Column(nullable = false)
+    private Integer userId;
 }

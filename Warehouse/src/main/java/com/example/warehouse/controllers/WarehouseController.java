@@ -8,9 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins = "http://localhost:3000") // Allow frontend URL
 @RestController
-@RequestMapping("/admin")
 public class WarehouseController {
     @Autowired
     private WarehouseService warehouseService;
@@ -36,5 +37,10 @@ public class WarehouseController {
     public String deleteWarehouse(@RequestParam Integer ID) {
         warehouseService.deleteWarehouse(ID);
         return "deleted successfully";
+    }
+
+    @GetMapping("/getWarehousesByUserId")
+    public List<Warehouse> getWarehousesByUserId(@RequestParam Integer userId) {
+        return warehouseService.getWarehousesByUserId(userId);
     }
 }
