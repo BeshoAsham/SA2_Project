@@ -3,7 +3,7 @@ version: '3.8'
 services:
   frontend:
     build: ./Frontend
-    container_name: clientContainer
+    container_name: frontendContainer
     stdin_open: true
     ports:
       - "3000:3000"

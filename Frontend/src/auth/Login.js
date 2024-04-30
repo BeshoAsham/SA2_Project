@@ -45,7 +45,7 @@ export const Login = ({ setIsAuthenticated }) => {
     return (
         <form className={classes.formContainer} onSubmit={handleSubmit}>
             <label className={classes.label}>
-                <span className={classes.labelText}>Username:</span>
+                <span className={classes.labelText}>Email:</span>
                 <input
                     className={classes.input}
                     type="email"

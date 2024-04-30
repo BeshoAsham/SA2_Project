@@ -76,29 +76,34 @@ export const Register = () => {
                 />
             </label>
             <label className={classes.label}>
-                <span className={classes.labelText}>status:</span>
-                <input
+                <span className={classes.labelText}>Status:</span>
+                <select
                     className={classes.input}
-                    type="text"
                     name="status"
                     value={inputs.status || ''}
                     onChange={handleChange}
-                    autoComplete="off"
                     required
-                />
+                >
+                    <option value="">Select Status</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
             </label>
             <label className={classes.label}>
                 <span className={classes.labelText}>Type:</span>
-                <input
+                <select
                     className={classes.input}
-                    type="text"
                     name="type"
                     value={inputs.type || ''}
                     onChange={handleChange}
-                    autoComplete="off"
                     required
-                />
+                >
+                    <option value="">Select Type</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Supervisor">Supervisor</option>
+                </select>
             </label>
+
             <label className={classes.label}>
                 <span className={classes.labelText}>phone:</span>
                 <input
